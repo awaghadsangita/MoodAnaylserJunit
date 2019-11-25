@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.javacoreprojectjunit.TestCoreConcept" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-11-25T07:50:20" hostname="admin1-Lenovo-Product" time="0.007">
+<testsuite name="com.javacoreprojectjunit.TestCoreConcept" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-25T11:40:30" hostname="admin1-Lenovo-Product" time="0.001">
   <properties/>
-  <testcase name="givenMessage_WhenSad_ShouldReturnSad" classname="com.javacoreprojectjunit.TestCoreConcept" time="0.004"/>
-  <testcase name="givenMessage_WhenHappy_ShouldReturnHappy" classname="com.javacoreprojectjunit.TestCoreConcept" time="0.0"/>
-  <testcase name="givenNullMoodShouldThrowException" classname="com.javacoreprojectjunit.TestCoreConcept" time="0.001"/>
-  <testcase name="givenMoodAnalserClass_WhenProper_ShouldReturnObject" classname="com.javacoreprojectjunit.TestCoreConcept" time="0.001"/>
+  <testcase name="givenEmptyMood_ShouldThrowException" classname="com.javacoreprojectjunit.TestCoreConcept" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

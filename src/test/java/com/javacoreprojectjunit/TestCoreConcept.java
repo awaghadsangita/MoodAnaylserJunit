@@ -44,15 +44,36 @@ public class TestCoreConcept {
     }
 
     @Test
-    public void givenMoodAnalserClass_WhenProper_ShouldReturnObject() {
-        MoodAnaylser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am i Happy mood");
-        String mood = null;
-        try {
-            mood = moodAnalyser.anaylseMood();
-            Assert.assertEquals("HAPPY",mood);
-        } catch (MoodAnaylsisException e) {
-            e.printStackTrace();
+    public void givenMoodAnalserClass_WhenProper_ShouldReturnObject() throws MoodAnaylsisException{
+        MoodAnaylser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
+        Assert.assertEquals(new MoodAnaylser("I am in Happy mood"),moodAnalyser);
+    }
+    @Test
+    public void givenObject_WhenCorrect_ReturnsInfoUsingReflection()
+    {
+        MoodAnaylser moodAnalyze = new MoodAnaylser();
+        ObjectReflector.dump(moodAnalyze,3);
+    }
+
+    @Test
+    public void givenNullMood_ShouldThrowException() {
+        try{
+            MoodAnaylser moodAnaylser = new MoodAnaylser(null);
+            moodAnaylser.anaylseMood();
+
+        }catch(MoodAnaylsisException e) {
+            Assert.assertEquals(MoodAnaylsisException.ExceptionType.ENTERED_NULL, e.type);
         }
     }
 
+    @Test
+    public void givenEmptyMood_ShouldThrowException() {
+        try{
+            MoodAnaylser moodAnaylser = new MoodAnaylser();
+            moodAnaylser.anaylseMood("");
+        }catch(MoodAnaylsisException e)
+        {
+            Assert.assertEquals(MoodAnaylsisException.ExceptionType.ENTERED_EMPTY,e.type);
+        }
+    }
 }
