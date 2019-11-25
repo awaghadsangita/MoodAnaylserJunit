@@ -1,7 +1,7 @@
 package com.javacoreprojectjunit;
 
 public class MoodAnaylser {
-    public String anaylseMood( String message) {
+    public String anaylseMood( String message) throws MoodAnaylsisException {
         try{
             if (message.contains("SAD"))
             {
@@ -12,7 +12,7 @@ public class MoodAnaylser {
             }
         }catch(NullPointerException e)
         {
-            return "HAPPY";
+            throw new MoodAnaylsisException("Please enter proper message");
         }
     }
 }
