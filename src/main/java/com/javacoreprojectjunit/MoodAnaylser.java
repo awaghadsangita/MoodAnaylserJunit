@@ -1,17 +1,26 @@
 package com.javacoreprojectjunit;
 
 public class MoodAnaylser {
-    public String anaylseMood( String message) throws MoodAnaylsisException {
+    private String message;
+
+    public MoodAnaylser(String message) {
+        this.message=message;
+    }
+    public String anaylseMood(String message) throws MoodAnaylsisException {
+        this.message=message;
+        return  anaylseMood();
+    }
+
+    public String anaylseMood() throws MoodAnaylsisException {
         try{
-            if (message.contains("SAD"))
-            {
+            if(message.length()==0) {
+                throw new MoodAnaylsisException("Please enter proper message");
+            }else if(message.contains("SAD")){
                 return "SAD";
-            }else
-            {
+            }else{
                 return "HAPPY";
             }
-        }catch(NullPointerException e)
-        {
+        }catch(NullPointerException e){
             throw new MoodAnaylsisException("Please enter proper message");
         }
     }
